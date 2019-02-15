@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LinesFragment extends Fragment {
@@ -29,16 +28,16 @@ public class LinesFragment extends Fragment {
         //layoutmanger is used to screen scroll
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        line = "can you feel it?!";
+        /*line = "can you feel it?!";
         List linelist = new ArrayList();
         for (int i=0;i<100;i++){
             linelist.add(line);
 
         }
         mLineAdaptor=new LineAdaptor(linelist);
-        mRecyclerView.setAdapter(mLineAdaptor);
+        mRecyclerView.setAdapter(mLineAdaptor);*/
 
-        //updateUI();
+        updateUI();
         return view;
     }
 
@@ -69,9 +68,9 @@ public class LinesFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull LineHolder lineHolder, int i) {
-            //Line line = mLinesList.get(i);
-            //lineHolder.mTextView.setText(line.getLineword());
-            lineHolder.mTextView.setText(line);
+            Line line = mLinesList.get(i);
+            lineHolder.mTextView.setText(line.getLineword());
+            //lineHolder.mTextView.setText(line);
 
         }
 
@@ -83,10 +82,10 @@ public class LinesFragment extends Fragment {
         }
     }
 
-    /*public void updateUI(){
+    public void updateUI(){
         LinesLab linesLab = new LinesLab();
         List<Line> lines = linesLab.getLinesList();
         mLineAdaptor= new LineAdaptor(lines);
         mRecyclerView.setAdapter(mLineAdaptor);
-    }*/
+    }
 }
